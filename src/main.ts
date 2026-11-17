@@ -35,6 +35,15 @@ console.log(`Index för Latte: ${indexLatte} och status på Cola: ${ finnsCola ?
 const listaAllaDrycker: string = drycker.join(", "); 
 console.log(`Utbud drycker: ${ listaAllaDrycker }`);
 
+
+// c)
+interface Kopp {
+  namn: string;
+  pris: number;
+  vegetarisk: boolean;
+  storlek?: string;
+}
+
 // UPPGIFT 2: objekt
 // a) skapa const kopp = { namn: "Latte", pris: 45, vegetarisk: true };
 // b) skriv ut kopp.namn och kopp["pris"]
@@ -42,7 +51,17 @@ console.log(`Utbud drycker: ${ listaAllaDrycker }`);
 //    TypeScript klagar på storlek. Beskriv objektet med en interface där storlek är valfri (storlek?: string).
 // d) skriv ut Object.keys(kopp)
 // TODO
-
+// a)
+const kopp: Kopp = { namn: "Latte", pris: 45, vegetarisk: true };
+// b)
+console.log(`Namn på Koppen: ${kopp.namn} och kostar: ${kopp["pris"]} kr`);
+// c)
+kopp.pris = 48;
+kopp.storlek = "stor";
+// d)
+console.log(Object.keys(kopp));
+//Note: Jag brukar alltid default till . formen när jag accessar egenskaper hos object. Skulle nyckeln
+//ligga i en variabel eller t.ex om nyckeln innehåller mellanslag jag då får man använda haklapparna...hakparanstes/brackets
 
 // UPPGIFT 3: arrayer av objekt
 // a) skriv ut hur många rätter menyn har och namnet på den första
