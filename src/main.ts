@@ -1,6 +1,16 @@
 // Dag 3, del 1: Arrayer och objekt i Console.
 import { meny } from "./data";
 
+//Reminder för mig själv - Array funktioner
+//Lägga till element
+//  push - Lägger till element sist i listan
+//  unshift - Lägger till element i början av listan
+//Ta bort element i listan
+//  pop - Tar bort element sist i listan()
+//  shift - Tar bort element först i listan
+
+
+
 // UPPGIFT 1: arrayer
 // a) skapa const drycker: string[] = ["Bryggkaffe", "Latte", "Te"];
 // b) lägg till "Chai" sist med push. Skriv ut listan och längden.
@@ -8,7 +18,22 @@ import { meny } from "./data";
 // d) skriv ut platsen för "Latte" (indexOf) och om "Cola" finns (includes).
 // e) skriv ut hela listan som en text: drycker.join(", ")
 // TODO
-
+// a)
+const drycker: string[] = ["Bryggkaffe", "Latte", "Te"];          
+// b)
+drycker.push("Chai");
+console.log(`Antal artiklar i listan: ${drycker.length}`);
+drycker.forEach(element => console.log(element));
+// c) 
+const raderadElement: string | undefined = drycker.pop();     //Vill inte ha Chai nu :)
+console.log(`Raderad element är: ${raderadElement}`);
+// d)
+const indexLatte: number = drycker.indexOf("Latte");
+const finnsCola: boolean = drycker.includes("Cola");
+console.log(`Index för Latte: ${indexLatte} och status på Cola: ${ finnsCola ? "Tillgänglig" : "Finns ej" }`);
+// e)
+const listaAllaDrycker: string = drycker.join(", "); 
+console.log(`Utbud drycker: ${ listaAllaDrycker }`);
 
 // UPPGIFT 2: objekt
 // a) skapa const kopp = { namn: "Latte", pris: 45, vegetarisk: true };
