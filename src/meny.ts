@@ -7,16 +7,27 @@ import type { Ratt, OrderRad } from "./typer";
 // 1. Alla vegetariska rätter (filter). Returnerar en ny array.
 export function vegetariskaRatter(meny: Ratt[]): Ratt[] {
   // TODO
+  //Retunera en ny array baserat på ett vilkor för varje element
+  return meny.filter((element) => element.vegetarisk);
 }
 
 // 2. Bara namnen, som en array av text (map). ["Kardemummabulle", ...]
 export function rattNamn(meny: Ratt[]): string[] {
-  // TODO
+  // För varje element i arrary (titta hur Ratt ser ut i typer)
+  // där varje ny element skall vara namnet på rätten
+  //och map wrappes in alla element in i en array
+  const baraNamn: string[] = meny.map((enRatt) => enRatt.namn);
+
+  return baraNamn;
 }
 
 // 3. En prislista som text: "Kardemummabulle – 35 kr" (map + formateraPris)
 export function prislista(meny: Ratt[]): string[] {
   // TODO
+  //Ganska lik föregående med lägg till formatterade priset också
+  //const namnPris: string[] = meny.map((enRatt) => enRatt.namn + " – " + enRatt.pris + " kr");
+  const namnPris: string[] = meny.map((enRatt) => `${enRatt.namn} – ${enRatt.pris} kr`);
+  return namnPris;
 }
 
 // 4. Hitta en rätt via id (find). Returnerar objektet, eller undefined om det saknas.
