@@ -76,3 +76,7 @@ for (const matratt of meny){
 }
 // c)
 console.log(`Sista rätten på menyn är: ${meny[meny.length - 1].namn}`);
+
+//Steg 4 - Vilken array method
+// Måste vara ngn som returerar en ny array baserat på ett vilkor som uppfylls
+// och tror det är filter
