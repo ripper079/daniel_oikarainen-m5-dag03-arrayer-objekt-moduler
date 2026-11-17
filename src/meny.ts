@@ -33,11 +33,30 @@ export function prislista(meny: Ratt[]): string[] {
 // 4. Hitta en rätt via id (find). Returnerar objektet, eller undefined om det saknas.
 export function hittaRatt(meny: Ratt[], id: number): Ratt | undefined {
   // TODO
+  const rattHittad: Ratt | undefined = meny.find((enRatt) => enRatt.id === id);
+  //Om inget object hittas så retuneras undefined vilket gör att man inte behöver kolla resultatet
+  return rattHittad;
 }
 
 // 5. Den billigaste rätten (reduce). Returnerar objektet. Tom lista ger undefined.
 export function billigast(meny: Ratt[]): Ratt | undefined {
   // TODO
+  if (meny.length === 0)
+      return undefined;
+  //Hmm underligt, man brukar ju accumlera värdet....
+
+  //Sätter sista rätten i meny som den initiala värdet
+  const rattBilligast = meny.reduce((accumulated, currentVal) => {
+    if (currentVal.pris < accumulated.pris){
+      return currentVal;
+    }
+    return accumulated;
+
+  }, meny[meny.length -1]);
+
+  return rattBilligast;
+  //Chatgpt
+  //const billigast = meny.reduce((minst, r) => (r.pris < minst ? r.pris : minst), Infinity);
 }
 
 // 6. Sortera efter pris, billigast först. Returnerar en NY array.
