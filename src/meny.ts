@@ -63,6 +63,13 @@ export function billigast(meny: Ratt[]): Ratt | undefined {
 //    Den ursprungliga listan får INTE ändras (sort ändrar originalet, så kopiera först).
 export function sorteraEfterPris(meny: Ratt[]): Ratt[] {
   // TODO
+  let shallowCopyMenuLista: Ratt[] = [...meny];
+  //Observera att denna funktion modifierar listan
+  //Fungerar genom att du måste ha en funktion som kollar skillnaden mellan dessa  
+  //MDN anger ett negativ eller positivt värde. Eller 0 om objekten anses vara lika
+  shallowCopyMenuLista.sort( (rattEtt, rattTva) => rattEtt.pris - rattTva.pris);
+  
+  return shallowCopyMenuLista;
 }
 
 // 7. Totalpris för en order. order = [{ id: 1, antal: 2 }, { id: 5, antal: 1 }]
