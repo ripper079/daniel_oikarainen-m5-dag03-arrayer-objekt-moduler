@@ -76,11 +76,41 @@ export function sorteraEfterPris(meny: Ratt[]): Ratt[] {
 //    Slå upp priset för varje id i menyn. Okända id räknas som 0 kr.
 export function totalPris(order: OrderRad[], meny: Ratt[]): number {
   // TODO
+  let summmaPris: number = 0;
+  for (const enOrderRad of order){
+    const hittaRatt = meny.find((enRattPaMenyn) => enRattPaMenyn.id === enOrderRad.id);
+    if (hittaRatt != undefined ){
+      summmaPris += (enOrderRad.antal * hittaRatt.pris);
+    }  
+  }
+  return summmaPris;
 }
 
 // 8. Antal rätter per kategori som ett objekt: { bakverk: 3, dryck: 2, lunch: 3 } (reduce)
 export function perKategori(meny: Ratt[]): Record<string, number> {
   // TODO
+  //Reminder
+  //index är number och uppdaterar sig själv: 0 till length-1
+  //Retunera acc, efter varje iteration
+  const kategoriStats = meny.reduce((ackumulator, element, index) => {
+    //Detta kommer vara nyckeln
+    const aktuellKategori: string = element.kategori;
+    //Finns kategorin i accumlatorn, dvs nyckeln, lägg till ett till befintligt värde
+    if (aktuellKategori in ackumulator){
+      let lopandeVarde = ackumulator[aktuellKategori];
+      lopandeVarde++;
+      ackumulator[aktuellKategori] = lopandeVarde;
+    }
+    //Kategorin finns inte i acc
+    else {
+      ackumulator[aktuellKategori] = 1;
+    }
+   
+    return ackumulator;
+    
+  }, {} as Record<string, number>);
+
+  return kategoriStats;
 }
 
 // 9. En kopia av rätten med nytt pris. Originalet får INTE ändras (spread: { ...ratt }).
