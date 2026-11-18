@@ -83,7 +83,12 @@ console.log(`Sista rätten på menyn är: ${meny[meny.length - 1].namn}`);
 // och tror det är filter
 
 console.log(`2 Koppar latte kostar: ${ 2 * kopp.pris} kr. Studentpris(10% rabatt) blir: ${studentPris(2 * kopp.pris).toFixed(2)} kr`);
-//Kommentarer
-// 1. 
-// 2. 
-// 3. 
+// STEG 10 - Kommentarer
+// 1.Uncaught SyntaxError: import declarations may only appear at top level of a module
+//  Den känner inte igen nyckelordet import. Detta tillhör det nya modul systemet som JS introducerade.
+//  Tror även att modul systemet kräver att ES moduler går via en server...är det kanske därför vi vi kör npm run dev :D...
+// 2. Uncaught ReferenceError: studentPris is not defined
+//    Måste ju importa funktionen från en fil, hur skall den annars hitta den :D ?
+// 3. Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at file:///src/main.ts. (Reason: CORS request not http). 2
+// Module source URI is not allowed in this document: “file:///src/main.ts”.
+// Jag refererar till kommentar 1 svar
