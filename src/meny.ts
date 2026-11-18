@@ -116,6 +116,8 @@ export function perKategori(meny: Ratt[]): Record<string, number> {
 // 9. En kopia av rätten med nytt pris. Originalet får INTE ändras (spread: { ...ratt }).
 export function medNyttPris(ratt: Ratt, nyttPris: number): Ratt {
   // TODO
+  // Detta sätt är bättre eftersom du initierar objektet direkt med det nya priset. 1 Steg
+  //Annars blir det 2 steg. Initiera + en tilldelning av nytt värde till befintligt objekt
   const nyPrisRatt: Ratt = {...ratt, pris: nyttPris};
   return nyPrisRatt;  
 }

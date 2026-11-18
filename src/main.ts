@@ -1,5 +1,6 @@
 // Dag 3, del 1: Arrayer och objekt i Console.
 import { meny } from "./data";
+import {studentPris  } from "./rabatt";
 
 //Reminder för mig själv - Array funktioner
 //Lägga till element
@@ -80,3 +81,9 @@ console.log(`Sista rätten på menyn är: ${meny[meny.length - 1].namn}`);
 //Steg 4 - Vilken array method
 // Måste vara ngn som returerar en ny array baserat på ett vilkor som uppfylls
 // och tror det är filter
+
+console.log(`2 Koppar latte kostar: ${ 2 * kopp.pris} kr. Studentpris(10% rabatt) blir: ${studentPris(2 * kopp.pris).toFixed(2)} kr`);
+//Kommentarer
+// 1. 
+// 2. 
+// 3. 
